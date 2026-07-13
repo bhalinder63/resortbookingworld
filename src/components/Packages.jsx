@@ -19,13 +19,20 @@ export default function Packages() {
       <div className="mx-auto grid max-w-page grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-7">
         {packages.map((p, i) => (
           <Reveal key={p.title} delay={i * 80}>
-            <div className="flex h-full flex-col overflow-hidden rounded-[18px] border border-sand bg-white shadow-[0_8px_26px_rgba(2,62,138,0.1)] transition duration-300 motion-safe:hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(2,62,138,0.16)]">
-              <img
-                src={p.img}
-                alt={p.imgLabel}
-                loading="lazy"
-                className="block h-[200px] w-full object-cover"
-              />
+            <div className="group flex h-full flex-col overflow-hidden rounded-[18px] border border-sand bg-white shadow-[0_8px_26px_rgba(2,62,138,0.1)] transition duration-300 motion-safe:hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(2,62,138,0.16)]">
+              <div className="relative h-[200px] w-full overflow-hidden">
+                <img
+                  src={p.img}
+                  alt={p.imgLabel}
+                  loading="lazy"
+                  className="block h-full w-full object-cover transition duration-500 motion-safe:group-hover:scale-110"
+                />
+                {p.bestSeller && (
+                  <span className="font-accent absolute top-3.5 left-3.5 rounded-full bg-navy px-3 py-1 text-[11px] font-bold tracking-wide text-white shadow-sm">
+                    Best Seller
+                  </span>
+                )}
+              </div>
               <div className="flex flex-1 flex-col px-6 pt-[22px] pb-[26px]">
                 <div className="mb-1 flex items-start justify-between gap-2.5">
                   <h3 className="font-display text-lg font-bold text-navy">{p.title}</h3>

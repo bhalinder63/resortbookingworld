@@ -160,3 +160,56 @@ export function HeadsetIcon({ className }) {
     </svg>
   );
 }
+
+export function StarIcon({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M12 2.5l2.9 6.1 6.6.8-4.8 4.6 1.2 6.6-5.9-3.2-5.9 3.2 1.2-6.6-4.8-4.6 6.6-.8Z" />
+    </svg>
+  );
+}
+
+export function UsersIcon({ className }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <circle cx="9" cy="8" r="3.2" />
+      <path d="M2.8 19.5v-1.2a4.5 4.5 0 0 1 4.5-4.5h3.4a4.5 4.5 0 0 1 4.5 4.5v1.2" />
+      <path d="M16 7.2a3.2 3.2 0 0 1 0 6.3" />
+      <path d="M18.6 13.9a4.2 4.2 0 0 1 2.6 3.9v1.2" />
+    </svg>
+  );
+}
+
+export function GlobeIcon({ className }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+    </svg>
+  );
+}
+
+export function ShieldIcon({ className }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M12 3l7 3v5.5c0 4.7-3 8.4-7 9.5-4-1.1-7-4.8-7-9.5V6Z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  );
+}
+
+export function ArrowUpIcon({ className }) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  );
+}
+
+export function QuoteIcon({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M9.5 6.5c-3 1-5 3.5-5 7 0 2.5 1.7 4.2 3.8 4.2 1.9 0 3.3-1.4 3.3-3.2 0-1.7-1.2-3-2.8-3.1-.2 0-.4 0-.6.1.2-1.9 1.6-3.4 3.3-4.1L9.5 6.5Zm9 0c-3 1-5 3.5-5 7 0 2.5 1.7 4.2 3.8 4.2 1.9 0 3.3-1.4 3.3-3.2 0-1.7-1.2-3-2.8-3.1-.2 0-.4 0-.6.1.2-1.9 1.6-3.4 3.3-4.1l-1-1.9Z" />
+    </svg>
+  );
+}

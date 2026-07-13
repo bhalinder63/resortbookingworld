@@ -6,7 +6,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-gold/25 bg-gradient-to-br from-navy/82 to-ocean/72 backdrop-blur-md">
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-gold/25 bg-gradient-to-br from-navy/82 to-ocean/72 backdrop-blur-md">
       <div className="mx-auto flex max-w-page items-center justify-between gap-6 px-6 py-4">
         <a
           href="#home"

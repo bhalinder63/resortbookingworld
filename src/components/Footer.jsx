@@ -6,6 +6,7 @@ import {
   FacebookIcon,
   InstagramIcon,
   LinkedInIcon,
+  ArrowUpIcon,
 } from './icons.jsx';
 
 const socialIcons = {
@@ -16,6 +17,10 @@ const socialIcons = {
 
 export default function Footer() {
   const year = new Date().getFullYear();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <footer className="bg-gradient-to-br from-navy to-[#012a5e] px-6 pt-16 pb-[110px] text-white">
@@ -123,13 +128,21 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 flex max-w-page flex-col items-center gap-3 border-t border-white/10 pt-6 text-center sm:flex-row sm:justify-between sm:text-left">
+      <div className="mx-auto mt-12 flex max-w-page flex-col items-center gap-4 border-t border-white/10 pt-6 text-center sm:flex-row sm:justify-between sm:text-left">
         <div className="text-xs text-white/50">
           © {year} Resort Booking World. All rights reserved.
         </div>
         <div className="text-xs text-white/50">
           Hassle-Free Booking &nbsp;|&nbsp; Trusted Service &nbsp;|&nbsp; Memorable Vacations
         </div>
+        <button
+          type="button"
+          onClick={scrollToTop}
+          className="font-accent inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        >
+          <ArrowUpIcon className="h-3.5 w-3.5" />
+          Back to Top
+        </button>
       </div>
     </footer>
   );

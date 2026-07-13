@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CONTACT, socials } from '../data.js';
+import { CONTACT, socials, destinations, budgetRanges, travelerCounts } from '../data.js';
 import Kicker from './Kicker.jsx';
 import { ChatIcon, MapPinIcon, FacebookIcon, InstagramIcon, LinkedInIcon } from './icons.jsx';
 
@@ -14,7 +14,16 @@ const fieldClass =
 const labelClass = 'text-[13px] font-semibold text-navy';
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    destination: '',
+    travelDate: '',
+    travelers: '2',
+    budget: '',
+    message: '',
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +34,11 @@ export default function Contact() {
     e.preventDefault();
     const subject = encodeURIComponent(`Resort Enquiry from ${form.name || 'Website Visitor'}`);
     const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\n${form.message}`
+      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n` +
+        `Destination: ${form.destination || 'Not specified'}\n` +
+        `Preferred Travel Date: ${form.travelDate || 'Flexible'}\n` +
+        `Travelers: ${form.travelers}\n` +
+        `Budget: ${form.budget || 'Not specified'}\n\n${form.message}`
     );
     window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
   };
@@ -172,6 +185,81 @@ export default function Contact() {
                 autoComplete="tel"
                 className={fieldClass}
               />
+            </div>
+
+            <div className="grid grid-cols-2 gap-3.5">
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="rbw-destination" className={labelClass}>
+                  Destination
+                </label>
+                <select
+                  id="rbw-destination"
+                  name="destination"
+                  value={form.destination}
+                  onChange={handleChange}
+                  className={fieldClass}
+                >
+                  <option value="">Not sure yet</option>
+                  {destinations.map((d) => (
+                    <option key={d.name} value={d.name}>
+                      {d.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="rbw-travelers" className={labelClass}>
+                  Travelers
+                </label>
+                <select
+                  id="rbw-travelers"
+                  name="travelers"
+                  value={form.travelers}
+                  onChange={handleChange}
+                  className={fieldClass}
+                >
+                  {travelerCounts.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="rbw-travelDate" className={labelClass}>
+                  Preferred Travel Date
+                </label>
+                <input
+                  id="rbw-travelDate"
+                  type="date"
+                  name="travelDate"
+                  value={form.travelDate}
+                  onChange={handleChange}
+                  className={fieldClass}
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="rbw-budget" className={labelClass}>
+                  Budget
+                </label>
+                <select
+                  id="rbw-budget"
+                  name="budget"
+                  value={form.budget}
+                  onChange={handleChange}
+                  className={fieldClass}
+                >
+                  <option value="">Select range</option>
+                  {budgetRanges.map((b) => (
+                    <option key={b} value={b}>
+                      {b}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             <div className="flex flex-col gap-1.5">

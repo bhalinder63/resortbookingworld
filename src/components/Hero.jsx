@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center overflow-hidden"
+      className="relative flex min-h-[380px] flex-1 items-center overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -40,7 +40,7 @@ export default function Hero() {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-navy/55 via-navy/35 to-navy/85" />
 
-      <div className="motion-safe:animate-fade-up relative z-2 mx-auto flex max-w-[760px] flex-col items-center px-6 pt-[120px] pb-[100px] text-center">
+      <div className="motion-safe:animate-fade-up relative z-2 mx-auto flex max-w-[760px] flex-col items-center px-6 pt-24 pb-10 text-center sm:pt-28 sm:pb-14">
         <div className="font-accent mb-[18px] text-[13px] font-bold tracking-[0.12em] text-gold uppercase">
           Let us Unlock Your Resort Experience.
         </div>
